@@ -18,10 +18,3 @@ class LiveStockViewModel: Stepper {
     }
 }
 
-class SubscribingTopStocksUseCase {
-    let liveStock: LiveStockInteractor
-    
-    init(liveStock: LiveStockInteractor) {
-        self.liveStock = liveStock
-    }
-}

@@ -20,6 +20,7 @@
 		8E53E65224417D5B009AE84F /* TradeRepublicStockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65124417D5B009AE84F /* TradeRepublicStockInteractor.swift */; };
 		8E53E65424417EA9009AE84F /* StaticLiveStockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65324417EA9009AE84F /* StaticLiveStockInteractor.swift */; };
 		8E53E65724417F30009AE84F /* DatasourceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65624417F30009AE84F /* DatasourceConfiguration.swift */; };
+		8E53E65A24418343009AE84F /* SubscribingTopStocksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65924418343009AE84F /* SubscribingTopStocksUseCase.swift */; };
 		E08AE70F536BD2DDDF76467A /* Pods_Stocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9E3B9F78C3F707A94C34E0 /* Pods_Stocks.framework */; };
 		EC437453AB259D5B6EFA5297 /* Pods_StocksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE2117D0A089AFC2AE59DC3 /* Pods_StocksTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		8E53E65124417D5B009AE84F /* TradeRepublicStockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeRepublicStockInteractor.swift; sourceTree = "<group>"; };
 		8E53E65324417EA9009AE84F /* StaticLiveStockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticLiveStockInteractor.swift; sourceTree = "<group>"; };
 		8E53E65624417F30009AE84F /* DatasourceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasourceConfiguration.swift; sourceTree = "<group>"; };
+		8E53E65924418343009AE84F /* SubscribingTopStocksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribingTopStocksUseCase.swift; sourceTree = "<group>"; };
 		BE9E3B9F78C3F707A94C34E0 /* Pods_Stocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE2117D0A089AFC2AE59DC3 /* Pods_StocksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StocksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D095FBFE19CBBE09787B2E7F /* Pods-Stocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stocks.debug.xcconfig"; path = "Target Support Files/Pods-Stocks/Pods-Stocks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		8E53E64524416EC0009AE84F /* LiveStock */ = {
 			isa = PBXGroup;
 			children = (
+				8E53E65824418333009AE84F /* UseCases */,
 				8E53E64624416EF6009AE84F /* LiveStockViewController.swift */,
 				8E53E6482441719F009AE84F /* LiveStockViewModel.swift */,
 			);
@@ -194,6 +197,14 @@
 				8E53E65624417F30009AE84F /* DatasourceConfiguration.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8E53E65824418333009AE84F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8E53E65924418343009AE84F /* SubscribingTopStocksUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		C59E06A45E1DE15FFC2291BE /* Frameworks */ = {
@@ -390,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E53E65A24418343009AE84F /* SubscribingTopStocksUseCase.swift in Sources */,
 				8E53E64424416BB0009AE84F /* AppStep.swift in Sources */,
 				8E53E61F24413CC5009AE84F /* ViewController.swift in Sources */,
 				8E53E65224417D5B009AE84F /* TradeRepublicStockInteractor.swift in Sources */,

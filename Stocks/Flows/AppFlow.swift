@@ -25,6 +25,7 @@ class AppFlow: Flow {
         return viewController
     }()
     
+    // Manual dependency injection
     struct Configuration {
         let dataSource: DatasourceConfiguration = DatasourceConfiguration(type: .real)
     }
@@ -37,6 +38,7 @@ class AppFlow: Flow {
         self.configuration = configuration
     }
     
+    // Resolves app navigation from steps (Route Handler)
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? AppStep else { return .none }
         
@@ -48,6 +50,7 @@ class AppFlow: Flow {
 }
 
 extension AppFlow {
+    // Live Stock Feature. Because of single screen seperate flow not introduced.
     func navigationToLiveStockScreen() -> FlowContributors {
         let viewController = LiveStockViewController(
             viewModel: LiveStockViewModel(
@@ -62,6 +65,7 @@ extension AppFlow {
     }
 }
 
+// App router. Possible in future, it will be used as delegate to handle routing calls.
 class AppStepper: Stepper {
     let steps = PublishRelay<Step>()
     
