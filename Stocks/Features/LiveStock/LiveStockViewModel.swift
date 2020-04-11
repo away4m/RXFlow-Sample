@@ -11,4 +11,17 @@ import RxFlow
 
 class LiveStockViewModel: Stepper {
     let steps = PublishRelay<Step>()
+    let subscribingTopStocksUseCase: SubscribingTopStocksUseCase
+    
+    init(liveStock: LiveStockInteractor) {
+        subscribingTopStocksUseCase = SubscribingTopStocksUseCase(liveStock: liveStock)
+    }
+}
+
+class SubscribingTopStocksUseCase {
+    let liveStock: LiveStockInteractor
+    
+    init(liveStock: LiveStockInteractor) {
+        self.liveStock = liveStock
+    }
 }

@@ -13,14 +13,7 @@ import RxSwift
 import UIKit
 
 class AppFlow: Flow {
-    func navigate(to step: Step) -> FlowContributors {
-        guard let step = step as? AppStep else { return .none }
-        
-        switch step {
-        case .liveStocks:
-            return navigationToLiveStockScreen()
-        }
-    }
+    // MARK: Properties
     
     var root: Presentable {
         return rootViewController
@@ -31,11 +24,35 @@ class AppFlow: Flow {
         viewController.setNavigationBarHidden(true, animated: false)
         return viewController
     }()
+    
+    struct Configuration {
+        let dataSource: DatasourceConfiguration = DatasourceConfiguration(type: .real)
+    }
+    
+    let configuration: Configuration
+    
+    // MARK: Life Cycle
+    
+    init(configuration: Configuration = Configuration()) {
+        self.configuration = configuration
+    }
+    
+    func navigate(to step: Step) -> FlowContributors {
+        guard let step = step as? AppStep else { return .none }
+        
+        switch step {
+        case .liveStocks:
+            return navigationToLiveStockScreen()
+        }
+    }
 }
 
 extension AppFlow {
     func navigationToLiveStockScreen() -> FlowContributors {
-        let viewController = LiveStockViewController(viewModel: LiveStockViewModel())
+        let viewController = LiveStockViewController(
+            viewModel: LiveStockViewModel(
+                liveStock: configuration.dataSource.liveStockInteractor
+        ))
         rootViewController.setViewControllers([viewController], animated: true)
         
         return .one(flowContributor: .contribute(

@@ -1,20 +1,22 @@
 PODS:
-  - Nimble (8.0.5)
+  - Nimble (8.0.7)
   - Quick (2.2.0)
-  - RxCocoa (5.1.0):
+  - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxFlow (2.7.0):
     - RxCocoa (>= 5.0.0)
     - RxSwift (>= 5.0.0)
-  - RxRelay (5.1.0):
+  - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.0)
+  - RxSwift (5.1.1)
+  - Starscream (4.0.3)
 
 DEPENDENCIES:
   - Nimble
   - Quick
   - RxFlow (= 2.7.0)
+  - Starscream (~> 4.0.0)
 
 SPEC REPOS:
   trunk:
@@ -24,15 +26,17 @@ SPEC REPOS:
     - RxFlow
     - RxRelay
     - RxSwift
+    - Starscream
 
 SPEC CHECKSUMS:
-  Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxFlow: 605ef6364d7e937bea8f9507a1e99a431cdc2493
-  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
-  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
 
-PODFILE CHECKSUM: 9db6a80a6287b85251e7ae6bb0f89642b3f1e28e
+PODFILE CHECKSUM: 5728e74d35b1f8ddb294d7d7a324104633cb9fbc
 
 COCOAPODS: 1.9.1

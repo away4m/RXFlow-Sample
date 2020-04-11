@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'Stocks' do
   pod 'RxFlow', "2.7.0"
-
+  pod 'Starscream', '~> 4.0.0'
   target 'StocksTests' do
      inherit! :search_paths
 
