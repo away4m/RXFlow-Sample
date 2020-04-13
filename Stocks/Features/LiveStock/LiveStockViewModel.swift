@@ -9,6 +9,10 @@
 import RxCocoa
 import RxFlow
 
+protocol LiveStockInteractorDependency {
+    var liveStockInteractor: LiveStockInteractor { get }
+}
+
 class LiveStockViewModel: Stepper {
     let steps = PublishRelay<Step>()
     let subscribingTopStocksUseCase: SubscribingTopStocksUseCase

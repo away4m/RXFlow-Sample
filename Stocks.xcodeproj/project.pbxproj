@@ -24,6 +24,7 @@
 		8E53E65A24418343009AE84F /* SubscribingTopStocksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65924418343009AE84F /* SubscribingTopStocksUseCase.swift */; };
 		8E5EF9FB2443ED02000E4DD9 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5EF9FA2443ED01000E4DD9 /* NeedleGenerated.swift */; };
 		8EF48CF32444BC2700882FEB /* RootDIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF48CF22444BC2600882FEB /* RootDIComponent.swift */; };
+		8EF48CF52444FFEC00882FEB /* AppFlowDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF48CF42444FFEC00882FEB /* AppFlowDI.swift */; };
 		DEBB4198B745A6A20073F245 /* Pods_StocksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4648EF720CD69F9FAFE6960A /* Pods_StocksTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		8E53E65924418343009AE84F /* SubscribingTopStocksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribingTopStocksUseCase.swift; sourceTree = "<group>"; };
 		8E5EF9FA2443ED01000E4DD9 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		8EF48CF22444BC2600882FEB /* RootDIComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDIComponent.swift; sourceTree = "<group>"; };
+		8EF48CF42444FFEC00882FEB /* AppFlowDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowDI.swift; sourceTree = "<group>"; };
 		C4407BA59D66A58C6A8D0C8D /* Pods-Stocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stocks.debug.xcconfig"; path = "Target Support Files/Pods-Stocks/Pods-Stocks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 		8E53E64E24417C6B009AE84F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8EF48CF42444FFEC00882FEB /* AppFlowDI.swift */,
 				8EF48CF22444BC2600882FEB /* RootDIComponent.swift */,
 			);
 			path = Core;
@@ -433,6 +436,7 @@
 				8E53E65424417EA9009AE84F /* StaticLiveStockInteractor.swift in Sources */,
 				8E53E64D24417A79009AE84F /* LiveStockInteractor.swift in Sources */,
 				8E53E64724416EF6009AE84F /* LiveStockViewController.swift in Sources */,
+				8EF48CF52444FFEC00882FEB /* AppFlowDI.swift in Sources */,
 				8E5EF9FB2443ED02000E4DD9 /* NeedleGenerated.swift in Sources */,
 				8E53E61B24413CC5009AE84F /* AppDelegate.swift in Sources */,
 				8E53E65724417F30009AE84F /* InteractorDIComponent.swift in Sources */,

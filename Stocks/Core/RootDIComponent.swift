@@ -15,8 +15,8 @@ class RootDIComponent: BootstrapComponent {
         InteractorDIComponent(parent: self)
     }
     
-    var appFlowDI: AppFlowConfiguration {
-        AppFlowConfiguration(parent: self)
+    var appFlowDI: AppFlowDI {
+        AppFlowDI(parent: self)
     }
     
     var appFlow: Flow {

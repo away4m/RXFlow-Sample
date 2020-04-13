@@ -9,9 +9,7 @@
 import Foundation
 import NeedleFoundation
 
-protocol LiveStockInteractorDependency {
-    var liveStockInteractor: LiveStockInteractor { get }
-}
+
 
 class InteractorDIComponent: Component<EmptyDependency>, LiveStockInteractorDependency {
     var liveStockInteractor: LiveStockInteractor {

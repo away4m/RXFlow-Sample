@@ -13,26 +13,8 @@ import RxFlow
 import RxSwift
 import UIKit
 
-protocol AppFlowBuilder {
-    var appFlow: Flow { get }
-}
-
-protocol AppFlowDependency: Dependency {
-    var interactorDI: InteractorDIComponent { get }
-}
-
-class AppFlowConfiguration: Component<AppFlowDependency>, AppFlowBuilder {
-    var appFlow: Flow {
-        AppFlow(configuration: self)
-    }
-    
-    var liveStockDependecy: LiveStockInteractorDependency {
-        return dependency.interactorDI
-    }
-    
-    var liveStockViewModel: LiveStockViewModel {
-        LiveStockViewModel(liveStock: liveStockDependecy)
-    }
+protocol AppFlowConfiguration {
+    var liveStockViewModel: LiveStockViewModel { get }
 }
 
 class AppFlow: Flow {
