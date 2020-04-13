@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //Needle DI
+        registerProviderFactories()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         coordinator.rx.willNavigate.subscribe(onNext: { flow, step in
@@ -28,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: disposeBag)
         
-        let appFlow = AppFlow()
-        
+        let rootComponent = RootDIComponent()
+        let appFlow = rootComponent.appFlow
         Flows.whenReady(flow1: appFlow) { root in
             self.window?.rootViewController = root
             self.window?.makeKeyAndVisible()

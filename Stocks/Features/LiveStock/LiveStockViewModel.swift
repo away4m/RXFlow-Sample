@@ -13,8 +13,7 @@ class LiveStockViewModel: Stepper {
     let steps = PublishRelay<Step>()
     let subscribingTopStocksUseCase: SubscribingTopStocksUseCase
     
-    init(liveStock: LiveStockInteractor) {
-        subscribingTopStocksUseCase = SubscribingTopStocksUseCase(liveStock: liveStock)
+    init(liveStock: LiveStockInteractorDependency) {
+        subscribingTopStocksUseCase = SubscribingTopStocksUseCase(liveStock: liveStock.liveStockInteractor)
     }
 }
-

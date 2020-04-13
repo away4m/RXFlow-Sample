@@ -7,10 +7,33 @@
 //
 
 import Foundation
+import NeedleFoundation
 import RxCocoa
 import RxFlow
 import RxSwift
 import UIKit
+
+protocol AppFlowBuilder {
+    var appFlow: Flow { get }
+}
+
+protocol AppFlowDependency: Dependency {
+    var interactorDI: InteractorDIComponent { get }
+}
+
+class AppFlowConfiguration: Component<AppFlowDependency>, AppFlowBuilder {
+    var appFlow: Flow {
+        AppFlow(configuration: self)
+    }
+    
+    var liveStockDependecy: LiveStockInteractorDependency {
+        return dependency.interactorDI
+    }
+    
+    var liveStockViewModel: LiveStockViewModel {
+        LiveStockViewModel(liveStock: liveStockDependecy)
+    }
+}
 
 class AppFlow: Flow {
     // MARK: Properties
@@ -26,15 +49,12 @@ class AppFlow: Flow {
     }()
     
     // Manual dependency injection
-    struct Configuration {
-        let dataSource: DatasourceConfiguration = DatasourceConfiguration(type: .real)
-    }
     
-    let configuration: Configuration
+    let configuration: AppFlowConfiguration
     
     // MARK: Life Cycle
     
-    init(configuration: Configuration = Configuration()) {
+    init(configuration: AppFlowConfiguration) {
         self.configuration = configuration
     }
     
@@ -53,9 +73,7 @@ extension AppFlow {
     // Live Stock Feature. Because of single screen seperate flow not introduced.
     func navigationToLiveStockScreen() -> FlowContributors {
         let viewController = LiveStockViewController(
-            viewModel: LiveStockViewModel(
-                liveStock: configuration.dataSource.liveStockInteractor
-        ))
+            viewModel: configuration.liveStockViewModel)
         rootViewController.setViewControllers([viewController], animated: true)
         
         return .one(flowContributor: .contribute(

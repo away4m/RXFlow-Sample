@@ -1,4 +1,5 @@
 PODS:
+  - NeedleFoundation (0.13.0)
   - Nimble (8.0.7)
   - Quick (2.2.0)
   - RxCocoa (5.1.1):
@@ -13,6 +14,7 @@ PODS:
   - Starscream (4.0.3)
 
 DEPENDENCIES:
+  - NeedleFoundation (~> 0.13.0)
   - Nimble
   - Quick
   - RxFlow (= 2.7.0)
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - NeedleFoundation
     - Nimble
     - Quick
     - RxCocoa
@@ -29,6 +32,7 @@ SPEC REPOS:
     - Starscream
 
 SPEC CHECKSUMS:
+  NeedleFoundation: dc79c0390c6eac99500657b1b67b39cdaf2328b4
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Starscream: ef06f0961fff0880bca0604416d61141e4faca67
 
-PODFILE CHECKSUM: 5728e74d35b1f8ddb294d7d7a324104633cb9fbc
+PODFILE CHECKSUM: 34eb4db78f5768c3b2a8d4ed802ea2f4765af090
 
 COCOAPODS: 1.9.1
