@@ -7,10 +7,10 @@
 //
 
 import Foundation
-class SubscribingTopStocksUseCase {
-    let liveStock: LiveStockInteractor
+class DiffableStockChangesUseCase {
+    let liveStockChanges: StockChangesInteractor
     
-    init(liveStock: LiveStockInteractor) {
-        self.liveStock = liveStock
+    init(liveStock: StockChangesInteractor) {
+        liveStockChanges = liveStock
     }
 }

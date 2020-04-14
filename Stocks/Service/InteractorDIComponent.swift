@@ -9,10 +9,10 @@
 import Foundation
 import NeedleFoundation
 
+// MARK: Interactors
 
-
-class InteractorDIComponent: Component<EmptyDependency>, LiveStockInteractorDependency {
-    var liveStockInteractor: LiveStockInteractor {
-        return shared { TradeRepublicStockInteractor() }
+class InteractorDIComponent: Component<EmptyDependency>, LiveStockConfiguration {
+    var stockInteractor: StockChangesInteractor {
+        return shared { TradeRepublicSocketInteractor() }
     }
 }

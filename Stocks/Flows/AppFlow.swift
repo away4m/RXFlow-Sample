@@ -14,7 +14,7 @@ import RxSwift
 import UIKit
 
 protocol AppFlowConfiguration {
-    var liveStockViewModel: LiveStockViewModel { get }
+    var liveStockDataSource: LiveStockConfiguration { get }
 }
 
 class AppFlow: Flow {
@@ -52,10 +52,10 @@ class AppFlow: Flow {
 }
 
 extension AppFlow {
-    // Live Stock Feature. Because of single screen seperate flow not introduced.
+    // Presenting live stock feature. If feature includes more screen it's better to intorduce seperate flow.
     func navigationToLiveStockScreen() -> FlowContributors {
-        let viewController = LiveStockViewController(
-            viewModel: configuration.liveStockViewModel)
+        let viewModel = LiveStockViewModel(configuration: configuration.liveStockDataSource)
+        let viewController = LiveStockViewController(viewModel: viewModel)
         rootViewController.setViewControllers([viewController], animated: true)
         
         return .one(flowContributor: .contribute(

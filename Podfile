@@ -6,6 +6,8 @@ target 'Stocks' do
   pod 'RxFlow', "2.7.0"
   pod 'Starscream', '~> 4.0.0'
   pod 'NeedleFoundation', '~> 0.13.0'
+  pod 'DiffableDataSources', '~> 0.4.0'
+  
   target 'StocksTests' do
      inherit! :search_paths
 

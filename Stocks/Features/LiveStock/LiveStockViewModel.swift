@@ -8,16 +8,22 @@
 
 import RxCocoa
 import RxFlow
-
-protocol LiveStockInteractorDependency {
-    var liveStockInteractor: LiveStockInteractor { get }
+import RxSwift
+protocol LiveStockConfiguration {
+    var stockInteractor: StockChangesInteractor { get }
 }
 
 class LiveStockViewModel: Stepper {
     let steps = PublishRelay<Step>()
-    let subscribingTopStocksUseCase: SubscribingTopStocksUseCase
+    private let subscribingTopStocksUseCase: DiffableStockChangesUseCase
     
-    init(liveStock: LiveStockInteractorDependency) {
-        subscribingTopStocksUseCase = SubscribingTopStocksUseCase(liveStock: liveStock.liveStockInteractor)
+    init(configuration: LiveStockConfiguration) {
+        subscribingTopStocksUseCase = DiffableStockChangesUseCase(stockInteractor: configuration.stockInteractor)
+    }
+    
+    func subscribe() -> Observable<SnapShot> {
+        subscribingTopStocksUseCase.subscribe(isin: "US0378331005")
+        subscribingTopStocksUseCase.subscribe(isin: "US0231351067")
+        return subscribingTopStocksUseCase.diffRelay.asObservable()
     }
 }

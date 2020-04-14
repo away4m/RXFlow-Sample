@@ -7,5 +7,29 @@
 //
 
 import Foundation
+import Starscream
 
-class TradeRepublicStockInteractor: LiveStockInteractor {}
+class TradeRepublicSocketInteractor: LiveStockInteractor {
+    private let socket: WebSocket
+    init() {
+        let request = URLRequest(url: URL(string: "ws://159.89.15.214:8080")!)
+        let pinner = FoundationSecurity(allowSelfSigned: true)
+        socket = WebSocket(request: request, certPinner: pinner)
+    }
+    
+    func disconnect() {
+        socket.disconnect()
+        socket.delegate = nil
+    }
+    
+    func connect() {
+        socket.connect()
+        socket.delegate = self
+    }
+    
+    func subscribe(isin: String) {}
+}
+
+extension TradeRepublicSocketInteractor: WebSocketDelegate {
+    func didReceive(event: WebSocketEvent, client: WebSocket) {}
+}

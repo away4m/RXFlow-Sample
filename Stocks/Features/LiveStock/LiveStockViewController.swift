@@ -25,5 +25,9 @@ class LiveStockViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.subscribe()
+        }
     }
 }
