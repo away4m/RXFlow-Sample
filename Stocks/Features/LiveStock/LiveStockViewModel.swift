@@ -9,21 +9,58 @@
 import RxCocoa
 import RxFlow
 import RxSwift
+
 protocol LiveStockConfiguration {
-    var stockInteractor: StockChangesInteractor { get }
+    var stockChangesInteractor: StockChangesInteractor { get }
+    var stockListInteractor: StockListInteractor { get }
 }
 
 class LiveStockViewModel: Stepper {
+    // MARK: Properties
+    
     let steps = PublishRelay<Step>()
+    let configuration: LiveStockConfiguration
     private let subscribingTopStocksUseCase: DiffableStockChangesUseCase
+    private let disposeBag = DisposeBag()
+    
+    lazy var viewState: Observable<DataSourceChange<StockData>> = {
+        subscribingTopStocksUseCase
+            .changesRelay
+            .observeOn(MainScheduler.instance)
+            .asObservable()
+        
+    }()
+    
+    // MARK: Life Cycle
     
     init(configuration: LiveStockConfiguration) {
-        subscribingTopStocksUseCase = DiffableStockChangesUseCase(stockInteractor: configuration.stockInteractor)
+        self.configuration = configuration
+        subscribingTopStocksUseCase = DiffableStockChangesUseCase(stockInteractor: configuration.stockChangesInteractor)
+    }
+}
+
+// MARK: Public
+
+extension LiveStockViewModel {
+    func subscribe() {
+        subscribeToStocks(list: configuration.stockListInteractor.getStockList())
     }
     
-    func subscribe() -> Observable<SnapShot> {
-        subscribingTopStocksUseCase.subscribe(isin: "US0378331005")
-        subscribingTopStocksUseCase.subscribe(isin: "US0231351067")
-        return subscribingTopStocksUseCase.diffRelay.asObservable()
+    func pauseSubscription(isin: String) {
+        subscribingTopStocksUseCase.pause(isin: isin)
+    }
+    
+    func resumeSubscription(isin: String) {
+        subscribingTopStocksUseCase.resume(isin: isin)
+    }
+}
+
+// MARK: Private
+
+private extension LiveStockViewModel {
+    func subscribeToStocks(list: [StockData]) {
+        for stock in list {
+            subscribingTopStocksUseCase.subscribe(isin: stock.isin, name: stock.name)
+        }
     }
 }

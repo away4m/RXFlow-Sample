@@ -8,14 +8,26 @@
 
 import RxCocoa
 import RxFlow
+import RxSwift
 import UIKit
 
 class LiveStockViewController: UITableViewController {
+    // MARK: Properties
+    
+    private let disposeBag = DisposeBag()
+    
     let viewModel: LiveStockViewModel
+    lazy var tableBuilder: StockTableUIBuilder = StockTableUIBuilder(tableview: tableView)
+    
+    // MARK: Life Cycle
     
     init(viewModel: LiveStockViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    deinit {
+        print()
     }
     
     required init?(coder: NSCoder) {
@@ -26,8 +38,20 @@ class LiveStockViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.viewModel.subscribe()
-        }
+        tableBuilder.subscribe(to: viewModel.viewState)
+        
+        tableBuilder.viewAction
+            .bind { [unowned self] action in
+                switch action {
+                case let .willDisplay(isin: isin):
+                    self.viewModel.resumeSubscription(isin: isin)
+                    
+                case let .didEndDisplaying(isin: isin):
+                    self.viewModel.pauseSubscription(isin: isin)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.subscribe()
     }
 }

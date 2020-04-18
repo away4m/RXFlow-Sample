@@ -1,10 +1,4 @@
 PODS:
-  - DiffableDataSources (0.4.0):
-    - DifferenceKit/AppKitExtension (~> 1.1)
-    - DifferenceKit/UIKitExtension (~> 1.1)
-  - DifferenceKit/Core (1.1.5)
-  - DifferenceKit/UIKitExtension (1.1.5):
-    - DifferenceKit/Core
   - NeedleFoundation (0.13.0)
   - Nimble (8.0.7)
   - Quick (2.2.0)
@@ -18,19 +12,18 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - Starscream (4.0.3)
+  - W (0.1.0)
 
 DEPENDENCIES:
-  - DiffableDataSources (~> 0.4.0)
   - NeedleFoundation (~> 0.13.0)
   - Nimble
   - Quick
   - RxFlow (= 2.7.0)
   - Starscream (~> 4.0.0)
+  - W (= 0.1.0)
 
 SPEC REPOS:
   trunk:
-    - DiffableDataSources
-    - DifferenceKit
     - NeedleFoundation
     - Nimble
     - Quick
@@ -39,10 +32,9 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Starscream
+    - W
 
 SPEC CHECKSUMS:
-  DiffableDataSources: 80396cec405c9b29e1e07b55c9be7d11b46c8741
-  DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
   NeedleFoundation: dc79c0390c6eac99500657b1b67b39cdaf2328b4
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
@@ -51,7 +43,8 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Starscream: ef06f0961fff0880bca0604416d61141e4faca67
+  W: e4ea9fec9d5afb9aa26ae2675e9201e2845c20c2
 
-PODFILE CHECKSUM: 288116997ce7077b0e9e5035a7b0d9928ee15c59
+PODFILE CHECKSUM: 7dc505fb88805231985886a8e7db596febac5adc
 
 COCOAPODS: 1.9.1

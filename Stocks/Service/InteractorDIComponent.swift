@@ -12,7 +12,11 @@ import NeedleFoundation
 // MARK: Interactors
 
 class InteractorDIComponent: Component<EmptyDependency>, LiveStockConfiguration {
-    var stockInteractor: StockChangesInteractor {
+    var stockChangesInteractor: StockChangesInteractor {
         return shared { TradeRepublicSocketInteractor() }
+    }
+    
+    var stockListInteractor: StockListInteractor {
+        return shared { BundleStockListInteractor() }
     }
 }

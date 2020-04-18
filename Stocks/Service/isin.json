@@ -1,0 +1,292 @@
+[
+    {
+        "isin": "US0382221051",
+        "name": "Applied Materials",
+        "symbol": "AMAT"
+    },
+    {
+        "isin": "US36165L1089",
+        "name": "GDS Holdings",
+        "symbol": "GDS"
+    },
+    {
+        "isin": "US8825081040",
+        "name": "Texas Instruments",
+        "symbol": "TXN"
+    },
+    {
+        "isin": "US67066G1040",
+        "name": "NVIDIA",
+        "symbol": "NVDA"
+    },
+    {
+        "isin": "US7427181091",
+        "name": "Procter & Gamble",
+        "symbol": "PG"
+    },
+    {
+        "isin": "US5949181045",
+        "name": "Microsoft",
+        "symbol": "MSFT"
+    },
+    {
+        "isin": "US57636Q1040",
+        "name": "Mastercard",
+        "symbol": "MA"
+    },
+    {
+        "isin": "US6092071058",
+        "name": "Mondelez",
+        "symbol": "MDLZ"
+    },
+    {
+        "isin": "BE0974293251",
+        "name": "Anheuser-Busch",
+        "symbol": "BUD"
+    },
+    {
+        "isin": "US06684L1035",
+        "name": "Baozun",
+        "symbol": "BZUN"
+    },
+    {
+        "isin": "DE0007164600",
+        "name": "SAP",
+        "symbol": "SAP"
+    },
+    {
+        "isin": "US46625H1005",
+        "name": "JPMorgan Chase",
+        "symbol": "JPM"
+    },
+    {
+        "isin": "US64110W1027",
+        "name": "NetEase",
+        "symbol": "NTES"
+    },
+    {
+        "isin": "US47215P1066",
+        "name": "JD.com",
+        "symbol": "JD"
+    },
+    {
+        "isin": "US02079K1079",
+        "name": "Alphabet C",
+        "symbol": "GOOG"
+    },
+    {
+        "isin": "US02079K3059",
+        "name": "Alhabet A",
+        "symbol": "GOOGL"
+    },
+    {
+        "isin": "US4592001014",
+        "name": "IBM",
+        "symbol": "IBM"
+    },
+    {
+        "isin": "US30303M1027",
+        "name": "Facebook",
+        "symbol": "FB"
+    },
+    {
+        "isin": "US5801351017",
+        "name": "McDonald's",
+        "symbol": "MCD"
+    },
+    {
+        "isin": "US9497461015",
+        "name": "Wells Fargo",
+        "symbol": "WFC"
+    },
+    {
+        "isin": "NL0000388619",
+        "name": "Unilever",
+        "symbol": "UL"
+    },
+    {
+        "isin": "DE000BAY0017",
+        "name": "Bayer",
+        "symbol": "BAYRY"
+    },
+    {
+        "isin": "NL0000009165",
+        "name": "Heineken",
+        "symbol": "HEINY"
+    },
+    {
+        "isin": "DE0007472060",
+        "name": "Wirecard",
+        "symbol": "WCAGY"
+    },
+    {
+        "isin": "US00724F1012",
+        "name": "Adobe",
+        "symbol": "ADBE"
+    },
+    {
+        "isin": "US01609W1027",
+        "name": "Alibaba",
+        "symbol": "BABA"
+    },
+    {
+        "isin": "US0605051046",
+        "name": "Bank of America",
+        "symbol": "BAC"
+    },
+    {
+        "isin": "US09247X1019",
+        "name": "Blackrock",
+        "symbol": "BLK"
+    },
+    {
+        "isin": "US4781601046",
+        "name": "Johnson & Johnson",
+        "symbol": "JNJ"
+    },
+    {
+        "isin": "US0231351067",
+        "name": "Amazon",
+        "symbol": "AMZN"
+    },
+    {
+        "isin": "US9078181081",
+        "name": "Union Pacific",
+        "symbol": "UNP"
+    },
+    {
+        "isin": "US00287Y1091",
+        "name": "AbbVie",
+        "symbol": "ABBV"
+    },
+    {
+        "isin": "US88032Q1094",
+        "name": "Tencent",
+        "symbol": "TCEHY"
+    },
+    {
+        "isin": "US9485961018",
+        "name": "Weibo",
+        "symbol": "WB"
+    },
+    {
+        "isin": "US7170811035",
+        "name": "Pfizer",
+        "symbol": "PFE"
+    },
+    {
+        "isin": "US88579Y1010",
+        "name": "3M",
+        "symbol": "MMM"
+    },
+    {
+        "isin": "JP3436100006",
+        "name": "Softbank",
+        "symbol": "SFTBY"
+    },
+    {
+        "isin": "US0567521085",
+        "name": "Baidu",
+        "symbol": "BIDU"
+    },
+    {
+        "isin": "US0378331005",
+        "name": "Apple",
+        "symbol": "AAPL"
+    },
+    {
+        "isin": "US1491231015",
+        "name": "Caterpillar",
+        "symbol": "CAT"
+    },
+    {
+        "isin": "US17275R1023",
+        "name": "Cisco",
+        "symbol": "CSCO"
+    },
+    {
+        "isin": "US1912161007",
+        "name": "Coca-Cola",
+        "symbol": "KO"
+    },
+    {
+        "isin": "US38141G1040",
+        "name": "Goldman Sachs",
+        "symbol": "GS"
+    },
+    {
+        "isin": "US4581401001",
+        "name": "Intel",
+        "symbol": "INTC"
+    },
+    {
+        "isin": "US6541061031",
+        "name": "Nike",
+        "symbol": "NKE"
+    },
+    {
+        "isin": "US9130171096",
+        "name": "United Technologies",
+        "symbol": "UTX"
+    },
+    {
+        "isin": "US92826C8394",
+        "name": "Visa",
+        "symbol": "V"
+    },
+    {
+        "isin": "US2546871060",
+        "name": "Walt Disney",
+        "symbol": "DIS"
+    },
+    {
+        "isin": "US00507V1098",
+        "name": "Activision Blizzard",
+        "symbol": "ATVI"
+    },
+    {
+        "isin": "US7475251036",
+        "name": "QUALCOMM",
+        "symbol": "QCOM"
+    },
+    {
+        "isin": "US88160R1014",
+        "name": "Tesla",
+        "symbol": "TSLA"
+    },
+    {
+        "isin": "DE000BASF111",
+        "name": "BASF",
+        "symbol": "BAS"
+    },
+    {
+        "isin": "DE0005785604",
+        "name": "Fresenius",
+        "symbol": "FRE"
+    },
+    {
+        "isin": "DE0005419105",
+        "name": "CANCOM",
+        "symbol": "COK"
+    },
+    {
+        "isin": "CNE100000296",
+        "name": "BYD",
+        "symbol": "BYDDF"
+    },
+    {
+        "isin": "GB0004544929",
+        "name": "Imperial Brands",
+        "symbol": "IMB"
+    },
+    {
+        "isin": "DE000A1ML7J1",
+        "name": "Vonovia",
+        "symbol": "VNA"
+    },
+    {
+        "isin": "DE0006231004",
+        "name": "Infineon Technologies",
+        "symbol": "IFX"
+    }
+]

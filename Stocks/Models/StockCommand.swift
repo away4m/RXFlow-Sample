@@ -22,3 +22,7 @@ extension StockCommand {
 struct StockSubscribeCommand: StockCommand {
     let subscribe: String
 }
+
+struct StockUnsubscribeCommand: StockCommand {
+    let unsubscribe: String
+}

@@ -12,6 +12,7 @@ struct StockError: Equatable {
     enum `Type`: String {
         case unknown = "Unknown Error"
         case disconnected = "Connection Error"
+        case invalidJSON = "Invalid JSON"
     }
     
     let type: Type
@@ -26,9 +27,4 @@ struct StockError: Equatable {
         message = error?.localizedDescription ?? "Undefined Error"
         type = .unknown
     }
-}
-
-enum StockEvent: Equatable {
-    case message(StockData)
-    case failure(StockError)
 }

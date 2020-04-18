@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import W
 import RxSwift
+
 class MockStockChangesInteractor: StockChangesInteractor {
     var isConnected: Bool {
         true
     }
     
-    var event: Observable<StockEvent> {
-        Observable<StockEvent>.just(.message(.init(isin: "1", price: 1.0)))
+    var event: Observable<SocketMessage> {
+        return Observable<SocketMessage>.just(.message(["isin": 1, "price": 1.0]))
     }
     
     var status: Observable<Bool> {
@@ -25,5 +27,7 @@ class MockStockChangesInteractor: StockChangesInteractor {
     
     func disconnect() {}
     
-    func send(command: StockCommand) {}
+    func send(command: StockCommand) -> Bool {
+        return true
+    }
 }

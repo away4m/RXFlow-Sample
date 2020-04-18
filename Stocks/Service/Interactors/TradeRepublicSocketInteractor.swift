@@ -10,11 +10,12 @@ import Foundation
 import RxRelay
 import RxSwift
 import Starscream
+import W
 
 class TradeRepublicSocketInteractor {
     // MARK: Properties
     
-    var event: Observable<StockEvent> {
+    var event: Observable<SocketMessage> {
         messageRelay.asObservable()
     }
     
@@ -22,7 +23,7 @@ class TradeRepublicSocketInteractor {
         connectionRelay.asObservable()
     }
     
-    private var messageRelay = PublishRelay<StockEvent>()
+    private var messageRelay = PublishRelay<SocketMessage>()
     private var connectionRelay = BehaviorRelay<Bool>(value: false)
     
     private let socket: WebSocket
@@ -34,6 +35,7 @@ class TradeRepublicSocketInteractor {
         let request = URLRequest(url: URL(string: "ws://159.89.15.214:8080")!)
         let pinner = FoundationSecurity(allowSelfSigned: true)
         socket = WebSocket(request: request, certPinner: pinner)
+        socket.callbackQueue = DispatchQueue(label: "stocks.socket.queue")
     }
 }
 
@@ -54,14 +56,18 @@ extension TradeRepublicSocketInteractor: StockChangesInteractor {
         socket.delegate = self
     }
     
-    func send(command: StockCommand) {
+    @discardableResult
+    func send(command: StockCommand) -> Bool {
         do {
             let message = try command.encode()
             socket.write(data: message, completion: nil)
             
         } catch {
             messageRelay.accept(.failure(StockError(error: error)))
+            return false
         }
+        
+        return true
     }
 }
 
@@ -69,7 +75,6 @@ extension TradeRepublicSocketInteractor: StockChangesInteractor {
 
 extension TradeRepublicSocketInteractor: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
-        print(event)
         switch event {
         case let .connected(headers):
             connectionRelay.accept(true)
@@ -80,7 +85,13 @@ extension TradeRepublicSocketInteractor: WebSocketDelegate {
             connectionRelay.accept(false)
             
         case let .text(string):
-            print("Received text: \(string)")
+            guard let json = J(withJSON: string) else {
+                messageRelay.accept(.failure(StockError(type: .invalidJSON)))
+                return
+            }
+            
+            messageRelay.accept(.message(json))
+            
         case let .binary(data):
             print("Received data: \(data.count)")
             
