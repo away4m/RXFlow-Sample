@@ -7,8 +7,4 @@
 //
 
 import Foundation
-import W
-enum SocketMessage {
-    case message(J)
-    case failure(StockError)
-}
+import ObjectWrapper

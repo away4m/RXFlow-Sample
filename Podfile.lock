@@ -1,6 +1,7 @@
 PODS:
   - NeedleFoundation (0.13.0)
   - Nimble (8.0.7)
+  - ObjectWrapper (0.1.0)
   - Quick (2.2.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -12,39 +13,38 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - Starscream (4.0.3)
-  - W (0.1.0)
 
 DEPENDENCIES:
   - NeedleFoundation (~> 0.13.0)
   - Nimble
+  - ObjectWrapper (= 0.1.0)
   - Quick
   - RxFlow (= 2.7.0)
   - Starscream (~> 4.0.0)
-  - W (= 0.1.0)
 
 SPEC REPOS:
   trunk:
     - NeedleFoundation
     - Nimble
+    - ObjectWrapper
     - Quick
     - RxCocoa
     - RxFlow
     - RxRelay
     - RxSwift
     - Starscream
-    - W
 
 SPEC CHECKSUMS:
   NeedleFoundation: dc79c0390c6eac99500657b1b67b39cdaf2328b4
   Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  ObjectWrapper: a30af3205593c5267a03d43332bf1a4176f47ca7
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxFlow: 605ef6364d7e937bea8f9507a1e99a431cdc2493
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Starscream: ef06f0961fff0880bca0604416d61141e4faca67
-  W: e4ea9fec9d5afb9aa26ae2675e9201e2845c20c2
 
-PODFILE CHECKSUM: 7dc505fb88805231985886a8e7db596febac5adc
+PODFILE CHECKSUM: eb4a303c5a07f297e3799cd18155ab85eb201089
 
 COCOAPODS: 1.9.1

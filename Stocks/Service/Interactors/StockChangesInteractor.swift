@@ -10,12 +10,17 @@ import Foundation
 import RxSwift
 
 protocol StockChangesInteractor {
-    var event: Observable<SocketMessage> { get }
+    var event: Observable<StockData> { get }
+    var error: Observable<StockError> { get }
     var status: Observable<Bool> { get }
     var isConnected: Bool { get }
     
     func connect()
     func disconnect()
+    
     @discardableResult
-    func send(command: StockCommand) -> Bool
+    func subscribe(identity: StockIdentity) -> Bool
+    
+    @discardableResult
+    func unsubscribe(identity: StockIdentity) -> Bool
 }

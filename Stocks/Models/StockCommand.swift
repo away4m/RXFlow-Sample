@@ -8,21 +8,13 @@
 
 import Foundation
 
-protocol StockCommand: Encodable {
+protocol StockCommand {
+    var raw: [String: Any] { get }
     func encode() throws -> Data
 }
 
 extension StockCommand {
     func encode() throws -> Data {
-        let jsonEncoder = JSONEncoder()
-        return try jsonEncoder.encode(self)
+        return try JSONSerialization.data(withJSONObject: raw, options: .prettyPrinted)
     }
-}
-
-struct StockSubscribeCommand: StockCommand {
-    let subscribe: String
-}
-
-struct StockUnsubscribeCommand: StockCommand {
-    let unsubscribe: String
 }

@@ -1,28 +1,27 @@
 //
-//  TradeRepublicStockInteractor.swift
+//  FinnhubStockInteractor.swift
 //  Stocks
 //
-//  Created by ALI KIRAN on 11.04.20.
+//  Created by ALI KIRAN on 21.04.20.
 //  Copyright © 2020 ALI KIRAN. All rights reserved.
 //
 
 import Foundation
-import RxCocoa
 import RxRelay
 import RxSwift
 
-class TradeRepublicSocketInteractor {
+class FinnhubStockInteractor {
     // MARK: Properties
     
     private let disposeBag = DisposeBag()
-    private lazy var socket = DynamicSocket(url: "ws://159.89.15.214:8080")
+    private lazy var socket = DynamicSocket(url: "wss://ws.finnhub.io?token=bqb7pevrh5r8t7qneqp0")
     private var identityMap: [String: StockIdentity] = [:]
     
     struct StockSubscribeCommand: StockCommand {
         let raw: [String: Any]
         
         init(identity: StockIdentity) {
-            raw = ["subscribe": identity.isin]
+            raw = ["type": "subscribe", "symbol": identity.symbol]
         }
     }
     
@@ -30,7 +29,7 @@ class TradeRepublicSocketInteractor {
         let raw: [String: Any]
         
         init(identity: StockIdentity) {
-            raw = ["unsubscribe": identity.isin]
+            raw = ["type": "unsubscribe", "symbol": identity.symbol]
         }
     }
     
@@ -41,7 +40,7 @@ class TradeRepublicSocketInteractor {
 
 // MARK: Public
 
-extension TradeRepublicSocketInteractor: StockChangesInteractor {
+extension FinnhubStockInteractor: StockChangesInteractor {
     var error: Observable<StockError> {
         socket.errorRelay.asObservable()
     }
@@ -50,11 +49,11 @@ extension TradeRepublicSocketInteractor: StockChangesInteractor {
         socket
             .messageRelay
             .compactMap { (wrapper) -> StockData? in
-                guard let isin = wrapper["isin"]?.string, let identity = self.identityMap[isin] else {
+                guard let symbol = wrapper["data"][0]["s"]?.string, let identity = self.identityMap[symbol] else {
                     return nil
                 }
                 
-                return StockData(identity: identity, price: Decimal(wrapper["price"].float ?? 0.0))
+                return StockData(identity: identity, price: Decimal(wrapper["data"][0]["p"].float ?? 0.0))
             }
     }
     
@@ -75,7 +74,7 @@ extension TradeRepublicSocketInteractor: StockChangesInteractor {
     }
     
     func subscribe(identity: StockIdentity) -> Bool {
-        identityMap[identity.isin] = identity
+        identityMap[identity.symbol] = identity
         let command = StockSubscribeCommand(identity: identity)
         return socket.send(command: command)
     }

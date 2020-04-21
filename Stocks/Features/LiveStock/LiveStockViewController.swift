@@ -43,11 +43,11 @@ class LiveStockViewController: UITableViewController {
         tableBuilder.viewAction
             .bind { [unowned self] action in
                 switch action {
-                case let .willDisplay(isin: isin):
-                    self.viewModel.resumeSubscription(isin: isin)
+                case let .willDisplay(identity: identity):
+                    self.viewModel.resumeSubscription(identity: identity)
                     
-                case let .didEndDisplaying(isin: isin):
-                    self.viewModel.pauseSubscription(isin: isin)
+                case let .didEndDisplaying(identity: identity):
+                    self.viewModel.pauseSubscription(identity: identity)
                 }
             }
             .disposed(by: disposeBag)

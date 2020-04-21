@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import ObjectWrapper
 import RxRelay
 import RxSwift
-import W
 
 class DiffableStockChangesUseCase {
     // MARK: Properties
@@ -18,7 +18,6 @@ class DiffableStockChangesUseCase {
     var subscriptions = [StockData]()
     
     private let stockInteractor: StockChangesInteractor
-    private var subscriptionIndexMap = [String: Int]()
     private let disposebag = DisposeBag()
     
     // MARK: Life Cycle
@@ -36,20 +35,25 @@ class DiffableStockChangesUseCase {
 // MARK: Public
 
 extension DiffableStockChangesUseCase {
-    func pause(isin: String) {
+    func pause(_ identity: StockIdentity) {
         whenReady { [unowned self] in
-            self.stockInteractor.send(command: StockUnsubscribeCommand(unsubscribe: isin))
+            self.stockInteractor.unsubscribe(identity: identity)
         }
     }
     
-    func resume(isin: String) {
+    func resume(_ identity: StockIdentity) {
         whenReady { [unowned self] in
-            self.stockInteractor.send(command: StockSubscribeCommand(subscribe: isin))
+            self.stockInteractor.subscribe(identity: identity)
         }
     }
     
-    func subscribe(isin: String, name: String) {
-        insertStock(isin: isin, name: name)
+    func subscribe(_ identity: StockIdentity) {
+        var mutableIdent = identity
+        mutableIdent.index = subscriptions.count
+        
+        let data = StockData(identity: mutableIdent)
+        subscriptions.append(data)
+        changesRelay.onNext(DataSourceChange.insert(index: data.identity.index, items: subscriptions))
     }
 }
 
@@ -58,21 +62,12 @@ extension DiffableStockChangesUseCase {
 private extension DiffableStockChangesUseCase {
     // Stock added into subsription list and index map register array position. After changes arrive we will use this index map to apply diff update
     
-    func insertStock(isin: String, name: String) {
-        let stock = StockData(name: name, isin: isin, price: 0, index: subscriptions.count)
-        
-        let index = stock.index
-        subscriptions.append(stock)
-        subscriptionIndexMap[stock.isin] = index
-        changesRelay.onNext(DataSourceChange.insert(index: index, items: subscriptions))
-    }
-    
     //  Update subscribed stock price
-    func updateStock(_ index: Int, price: Decimal) {
-        subscriptions[index].price = price
+    func updateSubscriptions(_ data: StockData) {
+        subscriptions[data.identity.index] = data
         
         changesRelay.on(.next(
-            DataSourceChange.update(index: index, items: subscriptions)
+            DataSourceChange.update(index: data.identity.index, items: subscriptions)
         ))
     }
     
@@ -96,24 +91,17 @@ private extension DiffableStockChangesUseCase {
         stockInteractor.connect()
         
         stockInteractor
-            .event
-            .bind { [unowned self] event in
-                switch event {
-                case let .message(json):
-                    self.updateSubscribeStockData(from: json)
-                    
-                case let .failure(error):
-                    print(error.message)
-                }
+            .error
+            .bind { error in
+                print(error)
             }
             .disposed(by: disposebag)
-    }
-    
-    func updateSubscribeStockData(from json: J) {
-        guard let isin = json["isin"]?.string, let index = subscriptionIndexMap[isin] else {
-            return
-        }
         
-        updateStock(index, price: Decimal(json["price"].float ?? 0.0))
+        stockInteractor
+            .event
+            .bind { [unowned self] data in
+                self.updateSubscriptions(data)
+            }
+            .disposed(by: disposebag)
     }
 }

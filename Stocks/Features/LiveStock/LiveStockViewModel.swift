@@ -46,21 +46,21 @@ extension LiveStockViewModel {
         subscribeToStocks(list: configuration.stockListInteractor.getStockList())
     }
     
-    func pauseSubscription(isin: String) {
-        subscribingTopStocksUseCase.pause(isin: isin)
+    func pauseSubscription(identity: StockIdentity) {
+        subscribingTopStocksUseCase.pause(identity)
     }
     
-    func resumeSubscription(isin: String) {
-        subscribingTopStocksUseCase.resume(isin: isin)
+    func resumeSubscription(identity: StockIdentity) {
+        subscribingTopStocksUseCase.resume(identity)
     }
 }
 
 // MARK: Private
 
 private extension LiveStockViewModel {
-    func subscribeToStocks(list: [StockData]) {
-        for stock in list {
-            subscribingTopStocksUseCase.subscribe(isin: stock.isin, name: stock.name)
+    func subscribeToStocks(list: [StockIdentity]) {
+        for identity in list {
+            subscribingTopStocksUseCase.subscribe(identity)
         }
     }
 }

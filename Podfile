@@ -10,7 +10,7 @@ target 'Stocks' do
   # Uber dependency injection solution with compile time safety
   pod 'NeedleFoundation', '~> 0.13.0'
   # Json object wrapper to avoid temproray mapping objects
-  pod 'W','0.1.0'
+  pod 'ObjectWrapper','0.1.0'
   
   target 'StocksTests' do
      inherit! :search_paths

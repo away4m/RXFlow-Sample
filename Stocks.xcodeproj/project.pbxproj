@@ -14,7 +14,6 @@
 		8E1A1FD2244AB170000F4672 /* isin.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A1FD1244AB170000F4672 /* isin.json */; };
 		8E1A1FD4244AB270000F4672 /* StockListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A1FD3244AB270000F4672 /* StockListInteractor.swift */; };
 		8E53E61B24413CC5009AE84F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E61A24413CC5009AE84F /* AppDelegate.swift */; };
-		8E53E61F24413CC5009AE84F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E61E24413CC5009AE84F /* ViewController.swift */; };
 		8E53E62424413CC9009AE84F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E53E62324413CC9009AE84F /* Assets.xcassets */; };
 		8E53E62724413CC9009AE84F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E53E62524413CC9009AE84F /* LaunchScreen.storyboard */; };
 		8E53E63724416898009AE84F /* StocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E63624416898009AE84F /* StocksTests.swift */; };
@@ -28,6 +27,8 @@
 		8E53E65724417F30009AE84F /* InteractorDIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65624417F30009AE84F /* InteractorDIComponent.swift */; };
 		8E53E65A24418343009AE84F /* DiffableStockChangesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53E65924418343009AE84F /* DiffableStockChangesUseCase.swift */; };
 		8E5EF9FB2443ED02000E4DD9 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5EF9FA2443ED01000E4DD9 /* NeedleGenerated.swift */; };
+		8E74E2A2244ED7AA00BC6B7D /* FinnhubStockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E2A1244ED7AA00BC6B7D /* FinnhubStockInteractor.swift */; };
+		8E74E2A4244ED9DD00BC6B7D /* DynamicSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74E2A3244ED9DD00BC6B7D /* DynamicSocket.swift */; };
 		8EDA653524453E49005BB00C /* AppFlowDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA653424453E49005BB00C /* AppFlowDI.swift */; };
 		8EDA6539244554FE005BB00C /* StockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA6538244554FE005BB00C /* StockError.swift */; };
 		8EDA653B244557A1005BB00C /* StockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA653A244557A1005BB00C /* StockData.swift */; };
@@ -59,7 +60,6 @@
 		8E1A1FD3244AB270000F4672 /* StockListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListInteractor.swift; sourceTree = "<group>"; };
 		8E53E61724413CC5009AE84F /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E53E61A24413CC5009AE84F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8E53E61E24413CC5009AE84F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8E53E62324413CC9009AE84F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E53E62624413CC9009AE84F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E53E62824413CC9009AE84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		8E53E65624417F30009AE84F /* InteractorDIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorDIComponent.swift; sourceTree = "<group>"; };
 		8E53E65924418343009AE84F /* DiffableStockChangesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableStockChangesUseCase.swift; sourceTree = "<group>"; };
 		8E5EF9FA2443ED01000E4DD9 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		8E74E2A1244ED7AA00BC6B7D /* FinnhubStockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinnhubStockInteractor.swift; sourceTree = "<group>"; };
+		8E74E2A3244ED9DD00BC6B7D /* DynamicSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSocket.swift; sourceTree = "<group>"; };
 		8EDA653424453E49005BB00C /* AppFlowDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowDI.swift; sourceTree = "<group>"; };
 		8EDA6538244554FE005BB00C /* StockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockError.swift; sourceTree = "<group>"; };
 		8EDA653A244557A1005BB00C /* StockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockData.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		8E1A1FCC244A8608000F4672 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8E74E2A3244ED9DD00BC6B7D /* DynamicSocket.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -157,7 +160,6 @@
 				8E53E63F24416A72009AE84F /* Features */,
 				8E53E63E24416A69009AE84F /* Flows */,
 				8E53E61A24413CC5009AE84F /* AppDelegate.swift */,
-				8E53E61E24413CC5009AE84F /* ViewController.swift */,
 				8E53E62324413CC9009AE84F /* Assets.xcassets */,
 				8E53E62524413CC9009AE84F /* LaunchScreen.storyboard */,
 				8E53E62824413CC9009AE84F /* Info.plist */,
@@ -223,6 +225,7 @@
 				8E53E65124417D5B009AE84F /* TradeRepublicSocketInteractor.swift */,
 				8E53E65324417EA9009AE84F /* MockStockChangesInteractor.swift */,
 				8E1A1FD3244AB270000F4672 /* StockListInteractor.swift */,
+				8E74E2A1244ED7AA00BC6B7D /* FinnhubStockInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -470,8 +473,8 @@
 				8EDA653D2445613A005BB00C /* LiveStockViewEffect.swift in Sources */,
 				8E53E65A24418343009AE84F /* DiffableStockChangesUseCase.swift in Sources */,
 				8E53E64424416BB0009AE84F /* AppStep.swift in Sources */,
-				8E53E61F24413CC5009AE84F /* ViewController.swift in Sources */,
 				8E53E65224417D5B009AE84F /* TradeRepublicSocketInteractor.swift in Sources */,
+				8E74E2A4244ED9DD00BC6B7D /* DynamicSocket.swift in Sources */,
 				8E53E64224416A92009AE84F /* AppFlow.swift in Sources */,
 				8E53E65424417EA9009AE84F /* MockStockChangesInteractor.swift in Sources */,
 				8E53E64D24417A79009AE84F /* StockChangesInteractor.swift in Sources */,
@@ -487,6 +490,7 @@
 				8EDA6539244554FE005BB00C /* StockError.swift in Sources */,
 				8EDA653F2445640A005BB00C /* StockCommand.swift in Sources */,
 				8EDA654124467D21005BB00C /* SocketMessage.swift in Sources */,
+				8E74E2A2244ED7AA00BC6B7D /* FinnhubStockInteractor.swift in Sources */,
 				8E1A1FC9244A45F5000F4672 /* DataSourceChange.swift in Sources */,
 				8EF48CF32444BC2700882FEB /* RootDIComponent.swift in Sources */,
 				8E1A1FD4244AB270000F4672 /* StockListInteractor.swift in Sources */,

@@ -15,7 +15,7 @@ class StockTableCell: UITableViewCell {
                 return
             }
             
-            textLabel?.text = data.name
+            textLabel?.text = data.identity.name
             detailTextLabel?.text = data.formattedPrice
         }
     }

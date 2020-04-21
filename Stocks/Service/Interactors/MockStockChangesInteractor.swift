@@ -7,16 +7,29 @@
 //
 
 import Foundation
-import W
+import ObjectWrapper
 import RxSwift
 
 class MockStockChangesInteractor: StockChangesInteractor {
+    var error: Observable<StockError> {
+        .never()
+    }
+    
+    func subscribe(identity stock: StockIdentity) -> Bool {
+        return true
+    }
+    
+    func unsubscribe(identity stock: StockIdentity) -> Bool {
+        return true
+    }
+    
     var isConnected: Bool {
         true
     }
     
-    var event: Observable<SocketMessage> {
-        return Observable<SocketMessage>.just(.message(["isin": 1, "price": 1.0]))
+    var event: Observable<StockData> {
+        let identity = StockIdentity(name: "ALI Corp", symbol: "ALI", isin: "11111")
+        return .just(StockData(identity: identity))
     }
     
     var status: Observable<Bool> {

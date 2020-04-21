@@ -15,8 +15,8 @@ class StockTableUIBuilder: NSObject {
     let viewAction = PublishSubject<ViewAction>()
     
     enum ViewAction {
-        case willDisplay(isin: String)
-        case didEndDisplaying(isin: String)
+        case willDisplay(identity: StockIdentity)
+        case didEndDisplaying(identity: StockIdentity)
     }
     
     private let tableview: UITableView
@@ -68,21 +68,21 @@ extension StockTableUIBuilder {
 
 extension StockTableUIBuilder: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let stockCell = cell as? StockTableCell, let isin = stockCell.data?.isin else {
+        guard let stockCell = cell as? StockTableCell, let identity = stockCell.data?.identity else {
             return
         }
         
         //Resume stock subsription
-        viewAction.onNext(.willDisplay(isin: isin))
+        viewAction.onNext(.willDisplay(identity: identity))
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let stockCell = cell as? StockTableCell, let isin = stockCell.data?.isin else {
+        guard let stockCell = cell as? StockTableCell, let identity = stockCell.data?.identity else {
             return
         }
         
-        //Resume stock subsription
-        viewAction.onNext(.didEndDisplaying(isin: isin))
+        //Pause stock subsription
+        viewAction.onNext(.didEndDisplaying(identity: identity))
     }
 }
 
